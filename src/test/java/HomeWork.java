@@ -2,6 +2,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -29,5 +30,10 @@ public class HomeWork {
         // WebElement elClass = wd.findElement(By.tagName("class")); - test failed. Why?
         List<WebElement> list_class = wd.findElements(By.tagName("class"));
         List<WebElement> form = wd.findElements(By.tagName("form"));
+    }
+
+    @AfterClass
+    public void postCondition() {
+        wd.quit();
     }
 }
