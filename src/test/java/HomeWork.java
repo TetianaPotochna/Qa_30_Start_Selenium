@@ -120,6 +120,26 @@ public class HomeWork {
         WebElement el10 = wd.findElement(By.xpath("//a[@href='/login']/preceding-sibling::*"));
 
     }
+    @Test
+    public void classWork2 (){
+        WebElement loginButton = wd.findElement(By.cssSelector("[name='login']"));
+        String text = loginButton.getText();
+        System.out.println(text);
+
+        WebElement form = wd.findElement(By.xpath("//form"));
+        String textForm = form.getText();
+        System.out.println("*********");
+        System.out.println(textForm);
+
+        WebElement html = wd.findElement(By.tagName("html"));
+        String textAll = html.getText();
+        System.out.println("*********");
+        System.out.println(textAll);
+
+        WebElement br = wd.findElement(By.tagName("br"));
+        System.out.println("text br--->" + br.getText());
+
+    }
 
     @AfterClass
     public void SetDown() {
