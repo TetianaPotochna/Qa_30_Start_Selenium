@@ -14,7 +14,7 @@ public class HomeWork {
     @BeforeClass
     public void SetUp() {
         wd = new ChromeDriver();
-        wd.get("https://telranedu.web.app/");
+        wd.get("https://telranedu.web.app/login");
     }
 
     @Test
@@ -66,15 +66,59 @@ public class HomeWork {
         WebElement root1 = wd.findElement(By.cssSelector("#root"));
         WebElement root2 = wd.findElement(By.xpath("//*[@id = 'root']"));
 
-        //By attribute
+        //By attribute + Classwork
         WebElement home = wd.findElement(By.cssSelector("[href='/home']"));
         WebElement home1 = wd.findElement(By.xpath("//*[@href = '/home']"));
 
         WebElement page = wd.findElement(By.cssSelector("[aria-current = 'page']"));
         WebElement page1 = wd.findElement(By.xpath("//*[@aria-current = 'page']"));
 
-        //WebElement registration = wd.findElement(By.name("registration"));
-        //WebElement registration1 = wd.findElement(By.cssSelector("[name = 'registration']"));
+        WebElement el9 = wd.findElement(By.cssSelector("[href = '/login']"));
+        WebElement el10 = wd.findElement(By.xpath("//*[@href='/login']"));
+        WebElement el20 = wd.findElement(By.xpath("//a[3]"));
+        WebElement el21 = wd.findElement(By.xpath("//a[last()]"));
+
+
+        WebElement el11 = wd.findElement(By.cssSelector("[placeholder='Password']"));
+        WebElement el12 = wd.findElement(By.xpath("//*[@placeholder='Password']"));
+
+        WebElement el13 = wd.findElement(By.cssSelector("[placeholder ^= 'Pas']"));
+        WebElement el14 = wd.findElement(By.xpath("//*[starts-with(@placeholder,'Pas')]"));
+
+        WebElement el15 = wd.findElement(By.cssSelector("[placeholder $= 'ord']"));
+        WebElement el16 = wd.findElement(By.xpath("//*[contains(@placeholder,'ord')]"));
+
+        WebElement el17 = wd.findElement(By.cssSelector("[placeholder *= 'ss']"));
+        WebElement el18 = wd.findElement(By.xpath("//*[contains(@placeholder, 'ss')]"));
+
+
+    }
+    @Test
+    public void classwork(){
+        //parent
+        WebElement el = wd.findElement(By.xpath("//h1/parent::*"));
+        WebElement el1 = wd.findElement((By.xpath("//h1/parent::div")));
+        WebElement el2 = wd.findElement(By.xpath("//h1/.."));
+
+        //ancestor
+        WebElement el3 = wd.findElement(By.xpath("//h1/ancestor::*")); //all
+        WebElement el4 = wd.findElement(By.xpath("//h1/ancestor::div")); //two options
+        WebElement el5 = wd.findElement(By.xpath("//h1/ancestor::div[2]"));//one option
+
+        //ancestor-or-self
+        WebElement el6 = wd.findElement(By.xpath("//h1/ancestor-or-self::*"));
+        List<WebElement> list = wd.findElements(By.xpath("//h1/ancestor-or-self::*"));
+
+        //following-sibling
+        List<WebElement> list1 = wd.findElements(By.xpath("//h1/following-sibling::*"));
+        WebElement el7 = wd.findElement(By.xpath("//h1/following-sibling::a[3]"));
+        WebElement el8 = wd.findElement(By.xpath("//h1/following-sibling::a[last()]"));
+
+        //preceding-sibling
+        List<WebElement> list3 = wd.findElements(By.xpath("//a[@href='/login']/preceding-sibling::*"));
+        WebElement el9 = wd.findElement(By.xpath("//a[@href='/login']/preceding-sibling::a[2]"));
+        WebElement el10 = wd.findElement(By.xpath("//a[@href='/login']/preceding-sibling::*"));
+
     }
 
     @AfterClass
